@@ -13,10 +13,21 @@ window.onload = function init()
     // Three Vertices
     
     var vertices = [
-        vec2( -1, -1 ),
-        vec2(  0,  1 ),
-        vec2(  1, -1 )
+        vec2( -1, 0 ),
+        vec2(  -0.5,  0.5 ),
+        vec2(  0, 0 ),
+        
+        vec2(0, -1),
+        vec2(0.5, -0.5),
+        vec2(1, -1)
     ];
+    var vertices2 = [
+        vec2( -1, 0 ),
+        vec2(  0,  -1 ),
+        vec2(  1, 0 )
+    ];
+    
+    //var usethis = [vertices,vertices2];
 
     //
     //  Configure WebGL
@@ -34,6 +45,7 @@ window.onload = function init()
     var bufferId = gl.createBuffer();
     gl.bindBuffer( gl.ARRAY_BUFFER, bufferId );
     gl.bufferData( gl.ARRAY_BUFFER, flatten(vertices), gl.STATIC_DRAW );
+    //gl.bufferData( gl.ARRAY_BUFFER, flatten(usethis), gl.STATIC_DRAW );
 
     // Associate out shader variables with our data buffer
     
@@ -47,5 +59,5 @@ window.onload = function init()
 
 function render() {
     gl.clear( gl.COLOR_BUFFER_BIT );
-    gl.drawArrays( gl.TRIANGLES, 0, 3 );
+    gl.drawArrays( gl.TRIANGLES, 0, 6 );
 }
