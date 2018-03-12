@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>first project ever yo</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="text/javascript" src="babylon.custom.js"></script>
+    <script type="text/javascript" src="init_scene.js"></script>
+    <script type="text/javascript" src="material.js"></script>
+    <script type="text/javascript" src="init_box.js"></script>
+    
+    
+    
+    
+</head>
+<body>
+    <canvas id="renderCanvas"></canvas>
+    <script>
+        var canvas, engine, scene, camera, box;
+        document.addEventListener("DOMContentLoaded", init_scene());
+        
+        box = init_box();
+        
+        engine.runRenderLoop(function(){
+            //move box to right
+            //box.position.x = box.position.x + 0.05;    
+            window.onkeydown = function(event){
+                if(event.keyCode == 65){
+                    box.position.x = box.position.x + 0.05;
+                } else if(event.keyCode == 68){
+                    box.position.x = box.position.x - 0.05;
+                } else if(event.keyCode == 87){
+                    box.position.y = box.position.y + 0.05;
+                } else if(event.keyCode == 83){
+                    box.position.y = box.position.y - 0.05;
+                }
+            }
+            
+            
+            scene.render();
+            
+
+        });
+        
+    </script>
+</body>
+
+</html>
